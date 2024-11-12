@@ -1,0 +1,95 @@
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and Container Settings */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f4ecf9; /* Background color similar to the screenshot */
+}
+
+.container {
+    width: 90%;
+    max-width: 400px;
+    background-color: #f4ecf9;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Progress Bar */
+.progress-container {
+    width: 100%;
+    background-color: #e2d5f0; /* Background color for the progress container */
+    height: 4px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.progress-bar {
+    width: 80%; /* Adjusted to show 8 out of 10 progress */
+    height: 100%;
+    background-color: #8474c7;
+    border-radius: 2px;
+}
+
+/* Question Number Style */
+.question-number {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Question Text Style */
+.question-text {
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+/* Options Style */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option-button {
+    background-color: #8474c7;
+    color: #fff;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.option-button:hover {
+    background-color: #7260b1;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .container {
+        width: 50%;
+    }
+
+    .question-text {
+        font-size: 1.4em;
+    }
+
+    .option-button {
+        font-size: 1.1em;
+        padding: 15px;
+    }
+}

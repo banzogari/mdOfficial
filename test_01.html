@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style_01.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <title>md vocabulary test</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        
+        <!-- Question Number -->
+        <div class="question-number">1 / 10</div>
+        
+        <!-- Question Text -->
+        <div class="question-text">
+            오늘 날짜는 10월 18일이다.<br>
+            ‘명일까지 서류 전달드리겠습니다’<br>
+            라고 했다면 서류를 언제까지<br>
+            전달해야 하는가?
+        </div>
+        
+        <!-- Answer Options -->
+        <div class="options">
+            <button class="option-button" onclick="recordScore(0)">10월 18일</button>
+            <button class="option-button" onclick="recordScore(1)">10월 19일</button>
+            <button class="option-button" onclick="recordScore(0)">10월 20일</button>
+        </div>
+    </div>
+    <script>
+        function recordScore(score) {
+            // 점수를 로컬 스토리지에 저장
+            let totalScore = parseInt(localStorage.getItem('totalScore')) || 0;
+            totalScore += score;
+            localStorage.setItem('totalScore', totalScore);
+            
+            // 다음 문제 페이지로 이동
+            window.location.href = 'test_02.html';
+        }
+//         /* 구글 스프레드시트 스크립트 시작 */
+// var jsonp = function (url) {
+//     var script = window.document.createElement('script');
+//     script.async = true;
+//     script.src = url;
+//     script.data = "{'A:1', 'B:2', 'C:3'}"
+//     script.onerror = function () {
+//         alert('구글 스프레드 시트 파일에 접근할 수 없습니다.')
+//     };
+//     var done = false;
+//     script.onload = script.onreadystatechange = function () {
+//         if (!done && (!this.readyState || this.readyState === 'loaded' || this.readyState === 'complete')) {
+//             done = true;
+//             script.onload = script.onreadystatechange = null;
+//             if (script.parentNode) {
+//                 return script.parentNode.removeChild(script);
+//             }
+//         }
+//     };
+//     window.document.getElementsByTagName('head')[0].appendChild(script);
+// };
+
+// //스프레드 시트에서 받아 온 데이터 파싱
+// var parse = function (data) {
+//     var column_length = data.table.cols.length;
+//     if (!column_length || !data.table.rows.length) {
+//         return false;
+//     }
+//     var columns = [],
+//         result = [], 
+//         row_length,
+//         value;
+
+//     //cols의 label이 빈 값이므로 row의 첫번째 행을 column으로 지정
+//     for (var column_idx in data.table.cols) {
+//         columns.push(data.table.rows[0]['c'][column_idx].v);
+//     }
+//     //row 데이터 불러오기
+//     for (var rows_idx in data.table.rows) {
+//         row_length = data.table.rows[rows_idx]['c'].length;
+//         if (column_length != row_length) {
+//             return false;
+//         }
+//         for (var row_idx in data.table.rows[rows_idx]['c']) {
+//             if (!result[rows_idx]) {
+//                 result[rows_idx] = {};
+//             }
+
+//             if(data.table.rows[rows_idx]['c'][row_idx] != null && data.table.rows[rows_idx]['c'][row_idx].v) {
+//                 value = data.table.rows[rows_idx]['c'][row_idx].v;
+//             }
+//             else {
+//                 value = "";
+//             }
+
+//             result[rows_idx][columns[row_idx]] = value;
+//         }
+//     }
+//     return result;
+// };
+
+// var query_save = function (sql, callback) {
+//     var url = 'https://script.google.com/macros/s/AKfycbzH54peSU9fwRNs-uOKyN4E-FZCv7ss5VRVLvA3HM3ugidjbV-GLhtoYj_6Yb2Annm1Og/exec',
+//         params = {
+//             key: '',
+//             tq: encodeURIComponent(sql),
+//             tqx: 'responseHandler:' + callback
+//         },
+//         qs = [];
+//     for (var key in params) {
+//         qs.push(key + '=' + params[key]);
+//     }
+//     url += qs.join('&');
+//     return jsonp(url); // JSONP 도우미 호출
+// }
+
+
+
+// var query_select = function (sql, callback) {
+//     var url = 'https://spreadsheets.google.com/a/google.com/tq?',
+//         params = {
+//             key: '1zzS6BtvR9lpIe-_t3YxHdv4b4FBeGflLUNZi5ub72ys',
+//             tq: encodeURIComponent(sql),
+//             tqx: 'responseHandler:' + callback
+//         },
+//         qs = [];
+//     for (var key in params) {
+//         qs.push(key + '=' + params[key]);
+//     }
+//     url += qs.join('&');
+//     return jsonp(url); // JSONP 도우미 호출
+// }
+
+
+// var my_callback = function (data) {
+//     data = parse(data); // 데이터 parse
+//     //불러온 데이터 조작
+//     for (var i = 0; i < datas.length; i++) {
+//         if (JSON.stringify(datas[i]) == JSON.stringify(data)) {
+//             return false;
+//         }
+//     }
+//     datas.push(data);
+
+//     // HTML 헤더의 값을 추출
+//     var col = [];
+//     for (var i = 0; i < data.length; i++) {
+//         for (var key in data[i]) {
+//             if (col.indexOf(key) === -1) {
+//                 col.push(key);
+//             }
+//         }
+//     }
+//     // 받아 온 데이터 커스텀 
+//     var table = document.querySelector("#tagTable table");
+//     if (table === null || table == undefined) {
+//         // 동적 테이블 생성
+//         table = document.createElement("table");
+
+//         // HTML 테이블 헤더 생성
+//         var tr = table.insertRow(-1);
+//         for (var i = 0; i < col.length; i++) {
+//             var th = document.createElement("th");
+//             th.innerHTML = col[i];
+//             tr.appendChild(th);
+//         }
+//         // HTML 테이블 ROW 생성
+//         for (var i = 1; i < data.length; i++) {
+//             tr = table.insertRow(-1);
+//             for (var j = 0; j < col.length; j++) {
+//                 var text = data[i][col[j]];
+//                 var tabCell = tr.insertCell(-1);
+//                 tabCell.innerHTML = data[i][col[j]];
+//                 var text = data[i][col[j]];
+//                 //tabCell.click
+//                 tabCell.innerHTML = '<span class="select-data input-tag" data-tag="' + text + '">' + text + '</span>';
+//                 tabCell.setAttribute("onclick","setDataToTag('" + text + "');");
+//                 //tabCell.innerHTML = '<span class="select-data input-tag" data-tag="' + text + '" onclick="setDataToTag(\'' + text +'\')">' + text + '</span>';
+//             }
+//         }
+//         // 마지막으로 JSON 데이터로 새로 만든 테이블을 컨테이너에 추가
+//         var divContainer = document.getElementById("tagTable");
+//         divContainer.innerHTML = "";
+//         divContainer.appendChild(table);
+//         $("#tagTable tr td").each(function(i, elem) {
+//             if($(this).find(".select-data").text() != "") {
+//                 $(this).addClass("select-tag");
+//             }
+//         });
+//     } else {
+//         // 테이블 행 동적 추가
+//         for (var i = 1; i < data.length; i++) {
+//             var tr = table.insertRow();
+//             for (var j = 0; j < col.length; j++) {
+//                 var tabCell = tr.insertCell(-1);
+//                 tabCell.innerHTML = data[i][col[j]];
+//             }
+//         }
+//     }
+
+// }
+// var datas = [];
+//query('select *', 'my_callback');
+//query_save('select *', 'my_callback');
+/* 구글 스프레드시트 스크립트 끝 */
+
+// var saveData = function () {
+
+//     $.ajax({
+//     type: "POST",
+//     url: "https://script.google.com/macros/s/AKfycbzH54peSU9fwRNs-uOKyN4E-FZCv7ss5VRVLvA3HM3ugidjbV-GLhtoYj_6Yb2Annm1Og/exec",
+//     data: {
+//         "A": "1",
+//         "B": "2",
+//         "C": "3"
+//     },
+//     success: function(response){
+//         alert('입력 완료.');
+//     }
+//     });
+
+// }
+
+// saveData();
+
+
+    </script>
+</body>
+</html>

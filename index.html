@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>어휘력 테스트</title>
+    <link rel="stylesheet" href="start_01.css">
+</head>
+<body>
+    <div class="container">
+        <h3>문득 어휘력 개선 프로젝트</h3>
+        <h1>어휘력 테스트</h1>
+        <p>나는 얼마나 많은 단어를 정확히 알고 있을까?</p>
+        <p class="subtext">*이름은 다섯 글자 이내의 한글로 작성해 주세요.</p>
+
+        <div class="input-box">
+            <input type="text" id="username" placeholder="이름을 입력해 주세요!"> <!-- id 추가 -->
+        </div>
+
+        <a href="#" class="start-btn" onclick="startGame()">시작하기</a> <!-- onclick 추가 -->
+
+        <div class="image-section" style="height:297px; background-image: url(background_01.png); background-position: 5px; background-position-y: -170px;"></div>
+    </div>
+    <script>
+        function startGame() {
+            const username = document.getElementById('username').value.trim();
+            if (username && username.length <= 5) {
+                // 사용자 이름을 로컬 스토리지에 저장하고 게임 화면으로 이동
+                localStorage.setItem('username', username);
+                window.location.href = "test_01.html"; // 페이지 이동
+            } else {
+                alert('이름을 다섯 글자 이내로 입력해 주세요.');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style_10.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>md vocabulary test</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        
+        <!-- Question Number -->
+        <div class="question-number">10 / 10</div>
+        
+        <!-- Question Text -->
+        <div class="question-text">
+            ‘고수하다’의 의미에 가까운 것은?
+        </div>
+        
+        <!-- Answer Options -->
+        <div class="options">
+            <button class="option-button" onclick="recordScore(1)">꾸준히 지키다</button> <!-- 정답 -->
+            <button class="option-button" onclick="recordScore(0)">포기하고 떠나다</button> <!-- 오답 -->
+            <button class="option-button" onclick="recordScore(0)">잠시 동안 유지하다</button> <!-- 오답 -->
+        </div>
+    </div>
+    <script>
+        function recordScore(score) {
+            let totalScore = parseInt(localStorage.getItem('totalScore')) || 0;
+            totalScore += score;
+            localStorage.setItem('totalScore', totalScore);
+
+            // 점수에 따라 결과 페이지 이동
+            // let resultPage;
+            // if (totalScore >= 9) {
+            //     resultPage = 'result.html';
+            // } else if (totalScore >= 6) {
+            //     resultPage = 'result.html';
+            // } else if (totalScore >= 3) {
+            //     resultPage = 'result.html';
+            // } else {
+            //     resultPage = 'result.html';
+            // }
+
+            window.location.href = "result.html";
+        }
+    </script>
+</body>
+</html>

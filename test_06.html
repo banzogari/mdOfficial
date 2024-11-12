@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style_06.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>md vocabulary test</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        
+        <!-- Question Number -->
+        <div class="question-number">6 / 10</div>
+        
+        <!-- Question Text -->
+        <div class="question-text">
+            ‘어떤 문제가 발생한 후에 그 원인이나 상황을 설명하다’의 뜻에 맞는 단어는?
+        </div>
+        
+        <!-- Answer Options -->
+        <div class="options">
+            <button class="option-button" onclick="recordScore(1)">해명</button> <!-- 정답 -->
+            <button class="option-button" onclick="recordScore(0)">변명</button> <!-- 오답 -->
+        </div>
+    </div>
+    <script>
+        function recordScore(score) {
+            // 점수를 로컬 스토리지에 저장
+            let totalScore = parseInt(localStorage.getItem('totalScore')) || 0;
+            totalScore += score;
+            localStorage.setItem('totalScore', totalScore);
+            
+            // 다음 문제 페이지로 이동
+            window.location.href = 'test_07.html';
+        }
+    </script>
+</body>
+</html>
